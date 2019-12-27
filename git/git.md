@@ -74,7 +74,7 @@ Date:   Wed Oct 24 11:32:03 2018 +0900
 ```
 
 ## .gitignore file
-
+- tbc
 
 ## Reference
 - <a href=https://git-scm.com> Git Official Website </a>

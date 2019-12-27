@@ -57,6 +57,7 @@ console.dir(title);
 ### 1. clock.js
 - 현재 시간을 Date 객체로 불러온 뒤 표현
 - `setInterval(function, delay)` 함수로 특정 함수를 주기적으로 호출
+<<<<<<< HEAD
 ```JSX
 const clockContainer = document.querySelector(".js-clock");
 const clockTitle = clockContainer.querySelector("h1");
@@ -78,58 +79,12 @@ function init() {
 
 init();
 ```
-
 ### 2. greetings.js
 - `querySelector()` 함수로 element 가져오기
 - CSS 파일과 연계하여 특정 상황에서 element 숨기기/보이기
 - button 기본동작 막고 이벤트 리스너 추가
 - element의 classList에 클래스 추가/제거
 - Local Storage에 데이터 저장 및 불러오기
-```JSX
-const form = document.querySelector(".js-form"),
-    input = form.querySelector("input"),
-    greeting  = document.querySelector(".js-greetings");
-
-const USER_LS = "currentUser",
-    SHOWING_CN = "showing";
-
-function saveName(text) {
-    localStorage.setItem(USER_LS, text);
-}
-
-function handleSubmit(event) {
-    event.preventDefault();
-    const currentValue = input.value;
-    paintGreeting(currentValue);
-    saveName(currentValue);
-}
-
-function askForName() {
-    form.classList.add(SHOWING_CN);
-    form.addEventListener("submit", handleSubmit);
-}
-
-function paintGreeting(text) {
-    form.classList.remove(SHOWING_CN);
-    greeting.classList.add(SHOWING_CN);
-    greeting.innerText = `Hello ${text}`;
-}
-
-function loadName() {
-    const currentUser = localStorage.getItem(USER_LS);
-    if(currentUser === null) {
-        askForName();    
-    } else {
-        paintGreeting(currentUser);
-    }
-}
-
-function init() {
-    loadName();
-}
-
-init();
-```
 
 ### 3. todo.js
 - Local Storage에 객체 Array 저장 및 불러오기
@@ -140,3 +95,7 @@ init();
 - `Math.floor()`와 `Math.random()` 함수를 이용하여 일정 범위의 무작위 정수 생성하기
 - 배경 이미지 추가
 - CSS 파일로 Fade-In 효과
+
+### 5. weather.js
+- navigator를 활용하여 사용자의 위치 정보 불러오기
+- 외부 API 사용해서 날씨 정보 불러오기
