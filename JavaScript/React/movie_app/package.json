@@ -28,5 +28,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-plugin-vue": "^6.1.0"
+  },
+  "description": "<a href=\"https://academy.nomadcoders.co/p/reactjs-fundamentals\">React JS Fundamentals course 2019</a>",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
