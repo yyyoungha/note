@@ -55,7 +55,7 @@ function App() {
 }
 ```
 
-여기서 dish는 <a href="https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/Basics">`JavaScript Object`</a>이므로 다양한 속성을 가진다.
+여기서 dish는 <a href="https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/Basics">JavaScript Object</a>이므로 다양한 속성을 가진다.
 
 ### React element의 유일성
 
@@ -76,7 +76,7 @@ const foodILike = [
 ### prop-types
 
 `npm i prop-types` 명령어로 설치할 수 있다.
-<a href="https://ko.reactjs.org/docs/typechecking-with-proptypes.html">`prop-types`</a>는 내가 전달받은 props가 내가 원하는 props 인지 확인해 준다. (타입 확인 기능)
+<a href="https://ko.reactjs.org/docs/typechecking-with-proptypes.html">prop-types</a>는 내가 전달받은 props가 내가 원하는 props 인지 확인해 준다. (타입 확인 기능)
 
 ```javascript
 import PropTypes from "prop-types";
@@ -108,9 +108,9 @@ class App extends React.Component {
 ```
 
 - Function component는 HTML 코드를 return 하고 그 결과가 화면에 표시된다.
-- Class component는 React.Component로부터 상속받은 `render()` 함수를 가진다. React는 자동으로 모든 Class component들의 `render()` 함수를 실행시킨다.
+- Class component는 React.Component로부터 상속받은 `render()` 함수를 가진다. React는 자동으로 모든 Class component들의 `render()` 함수를 실행시키며 이 함수에서 return하는 결과를 화면에 표시한다.
 
-### Class Component의 State
+### Class Component State
 
 - Class component를 사용하는 이유는 state라는 Object 때문이다. state에 바뀌는 데이터를 담을 수 있다.
 - 단 state를 다음과 같이 `render()` 함수가 아닌 다른 함수에서 명시적으로 바꾼다면, 저절로 refresh 되지 않고 제대로 동작하지 않는다.
@@ -140,6 +140,11 @@ class App extends React.Component {
   };
 }
 ```
+
+### <a href="https://ko.reactjs.org/docs/react-component.html">React Component Lifecycle</a>
+
+- React component lifecycle has three categories – Mounting, Updating and Unmounting.
+- Class Component에서 특별한 method를 선언하여 컴포넌트가 마운트되거나 언마운트 될 때 일부 코드를 실행시킬 수 있다. 이러한 method를 Lifecycle method라고 부른다.
 
 ## Reference
 

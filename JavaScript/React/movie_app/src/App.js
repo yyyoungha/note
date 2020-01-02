@@ -2,6 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log("Component constructed!");
+  }
   state = {
     count: 0
   };
@@ -14,7 +18,16 @@ class App extends React.Component {
     this.setState(current => ({ count: current.count - 1 }));
   };
 
+  componentDidMount() {
+    console.log("Component rendered!");
+  }
+
+  componentDidUpdate() {
+    console.log("I just updated!");
+  }
+
   render() {
+    console.log("I'm rendering...");
     return (
       <div>
         <h1>The number is {this.state.count}</h1>
