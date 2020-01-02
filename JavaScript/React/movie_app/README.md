@@ -153,6 +153,13 @@ class App extends React.Component {
 ### <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/async_function">async function</a>
 
 - 함수 앞에 async 선언은 비동기 함수를 정의할 수 있게 해 준다.
+
+```javascript
+getMovies = async () => {
+  const movies = await axios.get("https://yts-proxy.now.sh/list_movies.json");
+};
+```
+
 - 일반적인 JavaScript 함수는 코드를 위에서 아래로 순차적으로 처리하는데, 특정 코드가 끝나기 전까지는 그 다음 행이 실행되지 않는다. 이와 반대로 특정 코드의 실행이 끝나기 전에 그 다음 코드를 먼저 실행하는 것이 가능하도록 해주는 것이 비동기 함수이다.
 - 주로 다른 서버에 데이터를 요청할 때 사용한다.
 
