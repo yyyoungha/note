@@ -52,6 +52,32 @@ function App() {
 
 ### React element의 유일성
 각각의 React element는 유일한 key prop 값으로 식별되어야 한다.
+```javascript
+const foodILike = [
+  {
+    id: 1,
+    name: "Kimchi",
+    image: "http://blah-blah/images/pic.jpg",
+    rating: 5
+  },
+  ...
+]
+```
+
+### prop-types
+`npm i prop-types` 명령어로 설치할 수 있다.
+<a href="https://ko.reactjs.org/docs/typechecking-with-proptypes.html">`prop-types`</a>는 내가 전달받은 props가 내가 원하는 props 인지 확인해 준다. (타입 확인 기능)
+```javascript
+import PropTypes from 'prop-types';
+
+Food.propTypes = {
+  name: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired
+};
+```
+- 이름은 반드시 .propTypes 로 설정해야 한다.
+- isRequired는 해당 props가 반드시 이 타입으로 되어있어야 함을 말하며, 아니면 콘솔에서 에러를 발생시킨다.
 
 ## Reference
 - <a href="https://ko.reactjs.org/docs/getting-started.html">React Official Website</a>
