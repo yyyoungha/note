@@ -91,7 +91,7 @@ Food.propTypes = {
 - 이름은 반드시 .propTypes 로 설정해야 한다.
 - isRequired는 해당 props가 반드시 이 타입으로 되어있어야 함을 말하며, 아니면 콘솔에서 에러를 발생시킨다.
 
-### React Class Component와 State
+### React Class Component
 
 일반적으로 Class component는 다음과 같이 작성한다.
 
@@ -109,7 +109,37 @@ class App extends React.Component {
 
 - Function component는 HTML 코드를 return 하고 그 결과가 화면에 표시된다.
 - Class component는 React.Component로부터 상속받은 `render()` 함수를 가진다. React는 자동으로 모든 Class component들의 `render()` 함수를 실행시킨다.
-- Class component를 사용하는 이유는 state라는 Object 때문이다. 바뀌는 데이터를 담을 수 있다.
+
+### Class Component의 State
+
+- Class component를 사용하는 이유는 state라는 Object 때문이다. state에 바뀌는 데이터를 담을 수 있다.
+- 단 state를 다음과 같이 `render()` 함수가 아닌 다른 함수에서 명시적으로 바꾼다면, 저절로 refresh 되지 않고 제대로 동작하지 않는다.
+
+```javascript
+class App extends React.Component {
+  state = {
+    count: 0
+  };
+
+  add = () => {
+    this.state.count = 1;
+  };
+}
+```
+
+- state 값이 변경될 때 마다 react가 `render()` 함수를 다시 호출하게 하려면 `this.setState()` 함수를 작성하자.
+
+```javascript
+class App extends React.Component {
+  state = {
+    count: 0
+  };
+
+  add = () => {
+    this.setState(current => ({ count: current.count + 1 }));
+  };
+}
+```
 
 ## Reference
 
