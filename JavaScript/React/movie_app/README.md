@@ -146,6 +146,16 @@ class App extends React.Component {
 - React component lifecycle has three categories – Mounting, Updating and Unmounting.
 - Class Component에서 특별한 method를 선언하여 컴포넌트가 마운트되거나 언마운트 될 때 일부 코드를 실행시킬 수 있다. 이러한 method를 Lifecycle method라고 부른다.
 
+### Fetch from API
+
+- 이 프로젝트에서는 axios를 사용하였다. `npm i axios` 명령어를 통해 설치할 수 있다.
+
+### <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/async_function">async function</a>
+
+- 함수 앞에 async 선언은 비동기 함수를 정의할 수 있게 해 준다.
+- 일반적인 JavaScript 함수는 코드를 위에서 아래로 순차적으로 처리하는데, 특정 코드가 끝나기 전까지는 그 다음 행이 실행되지 않는다. 이와 반대로 특정 코드의 실행이 끝나기 전에 그 다음 코드를 먼저 실행하는 것이 가능하도록 해주는 것이 비동기 함수이다.
+- 주로 다른 서버에 데이터를 요청할 때 사용한다.
+
 ## Reference
 
 - <a href="https://ko.reactjs.org/docs/getting-started.html">React Official Website</a>
