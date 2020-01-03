@@ -180,7 +180,38 @@ function App() {
 
 - 위 예제코드에서는 path에 명시된 경로(/about)로 가면, component(About)를 보여주게 된다.
 
+#### React Link
+
+- 다음과 같이 HTML 태그로 링크 이동을 하면 전체 페이지를 새로 불러와서 성능이 떨어진다.
+
+```javascript
+function Navigation() {
+  return (
+    <div>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+    </div>
+  );
+}
+```
+
+- 대신 react-router-dom의 Link component를 사용하면 전체 페이지를 새로 불러오는걸 막고, 원하는 라우트로 화면 전환을 해 준다.
+
+```javascript
+function Navigation() {
+  return (
+    <div className="nav">
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+    </div>
+  );
+}
+```
+
+- Link가 포함된 코드는 항상 Router 안에 위치해야 한다. 그렇지 않으면 제대로 동작하지 않는다.
+
 ## Reference
 
 - <a href="https://ko.reactjs.org/docs/getting-started.html">React Official Website</a>
 - <a href="https://velopert.com/3236">[번역] 리액트에 대해서 그 누구도 제대로 설명하기 어려운 것 – 왜 Virtual DOM 인가?</a>
+- <a href="https://velopert.com/3417">react-router :: 1장. 리액트 라우터 사용해보기</a>
