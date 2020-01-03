@@ -163,6 +163,23 @@ getMovies = async () => {
 - 일반적인 JavaScript 함수는 코드를 위에서 아래로 순차적으로 처리하는데, 특정 코드가 끝나기 전까지는 그 다음 행이 실행되지 않는다. 이와 반대로 특정 코드의 실행이 끝나기 전에 그 다음 코드를 먼저 실행하는 것이 가능하도록 해주는 것이 비동기 함수이다.
 - 주로 다른 서버에 데이터를 요청할 때 사용한다.
 
+### React Router
+
+- 간단한 React component의 일종으로, URL을 보고 주소에 따라 다른 컴포넌트를 불러오는 역할을 한다.
+- react-router-dom은 React에서 공식적으로 제공하지는 않지만 가장 많이 쓰이는 써드파티 라이브러리 중 하나이다.
+
+```javascript
+function App() {
+  return (
+    <HashRouter>
+      <Route path="/about" component={About} />
+    </HashRouter>
+  );
+}
+```
+
+- 위 예제코드에서는 path에 명시된 경로(/about)로 가면, component(About)를 보여주게 된다.
+
 ## Reference
 
 - <a href="https://ko.reactjs.org/docs/getting-started.html">React Official Website</a>
