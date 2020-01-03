@@ -144,7 +144,7 @@ class App extends React.Component {
 ### <a href="https://ko.reactjs.org/docs/react-component.html">React Component Lifecycle</a>
 
 - React component lifecycle has three categories – Mounting, Updating and Unmounting.
-- Class Component에서 특별한 method를 선언하여 컴포넌트가 마운트되거나 언마운트 될 때 일부 코드를 실행시킬 수 있다. 이러한 method를 Lifecycle method라고 부른다.
+- Class Component에서 특별한 method를 선언하여 component가 마운트되거나 언마운트 될 때 일부 코드를 실행시킬 수 있다. 이러한 method를 Lifecycle method라고 부른다.
 
 ### Fetch from API
 
@@ -165,7 +165,7 @@ getMovies = async () => {
 
 ### React Router
 
-- 간단한 React component의 일종으로, URL을 보고 주소에 따라 다른 컴포넌트를 불러오는 역할을 한다.
+- 간단한 React component의 일종으로, URL을 보고 주소에 따라 다른 component를 불러오는 역할을 한다.
 - react-router-dom은 React에서 공식적으로 제공하지는 않지만 가장 많이 쓰이는 써드파티 라이브러리 중 하나이다.
 
 ```javascript
@@ -209,6 +209,12 @@ function Navigation() {
 ```
 
 - Link가 포함된 코드는 항상 Router 안에 위치해야 한다. 그렇지 않으면 제대로 동작하지 않는다.
+
+#### route props
+
+- route에 포함된 모든 component들은 react-router에 의해 전달받은 props(history, location, match, staticContext)를 가진다.
+
+- Link component의 to 속성을 통해 단순히 경로를 제공하는 것 뿐만 아니라 데이터를 주고받을 수 있다.
 
 ## Reference
 
