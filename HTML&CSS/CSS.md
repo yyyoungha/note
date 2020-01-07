@@ -4,10 +4,50 @@ CSS는 HTML 요소를 꾸며주는 역할을 하며, 꾸밀 대상이 되는 요
 
 ### HTML 문서와 CSS의 연결방법
 
-1. inline
-2.
-3. external:
-4.
+1. inline: HTML 요소에 직접 스타일 속성을 이용해서 규칙들을 선언하는 방법
+
+```html
+<!-- HTML -->
+<div style="color:red;">내용</div>
+```
+
+2. internal: HTML 문서에 `<style>`을 활용한 방법. `<style>`은 `<head>`내부에 들어가며 `<style>`안에 스타일 규칙이 들어간다.
+
+```html
+<!-- HTML -->
+<head>
+  <style>
+    div {
+      color: red;
+    }
+    p {
+      color: blue;
+    }
+  </style>
+</head>
+```
+
+3. external: 외부에서 스타일 시트 파일(css)을 사용하는 방법. 스타일 규칙들을 별도의 css 파일에 만든 뒤에 HTML link 태그를 통해 연결하는 방법
+
+```css
+/* style.css */
+div {
+  color: red;
+}
+```
+
+```html
+<!-- HTML -->
+<head>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+```
+
+4. import: css 파일 내에서 다른 css 파일을 불러오는 방식. 성능이 좋지 않아서 잘 쓰지 않는다.
+
+```css
+@import url("css/style.css");
+```
 
 ### CSS 기본 구조
 
@@ -22,6 +62,7 @@ h1 {
 - property(속성) : `color:` 는 속성 이름. 어떤 속성을 변경할 지 선택한다.
 - value(속성 값) : `yellow;`는 속성 값으로 속성과 함께 쓰여 값을 어떻게 바꿀지 나타낸다.
 - declaration(선언) : 속성과 속성 값을 묶어 선언이라 한다.
+> 가장 마지막 선언에는 ;를 붙이지 않아도 된다.
 
 ### CSS 선택자
 
@@ -67,12 +108,12 @@ h3 {
   2. CSS에서 .{class 속성값}으로 class 선택자를 사용해서 해당 요소에 스타일 규칙을 적용할 수 있다.
 
 ```html
-// HTML
+<!-- HTML -->
 <p class="foo bar">...</p>
 ```
 
 ```css
-// CSS
+/* CSS */
 .foo {
   font-size: 30px;
 }
@@ -87,12 +128,12 @@ h3 {
   - 문서 내의 유일한 하나의 요소에 사용한다.(id 속성값은 HTML문서 내에서 유일하며, 따라서 id 선택자로 스타일을 적용할 수 있는 요소는 단 하나 뿐이다.)
 
 ```html
-// HTML
+<!-- HTML -->
 <p id="foo">...</p>
 ```
 
 ```css
-// CSS
+/* CSS */
 #foo {
   background-color: green;
 }
@@ -337,12 +378,87 @@ h1 {
 
 > 상속되는 속성은 아무런 구체성을 가지지 않는다.
 
-### CSS 작성시 유의사항
+### CSS 속성
 
-- 제일 마지막 선언에는 세미콜론을 안 붙여도 된다.
+- color : 폰트의 색상 값을 적용할 때 사용한다. <a href="https://www.w3schools.com/colors/colors_names.asp">키워드</a>로 지정할 수도 있고, 16진수, RGB 등 다양한 방식으로 값을 지정할 수 있다.
+
+```css
+h1 {
+  color: red;
+}
+```
+
+- background: 요소의 배경에 관련된 속성을 지정
+  - `background-color`: 배경의 색상 지정
+  - `background-image`: 배경 이미지 경로를 지정한다. 상대 및 절대경로 모두 사용 가능
+  - `background-repeat`: 이미지의 반복 여부를 지정한다.
+  - `background-position`: 요소에서 배경 이미지의 위치를 지정한다.
+  - `background-attachment`: 스크롤에 따른 배경 이미지 움직임 여부를 결정한다.
+
+```css
+{
+  background: [-color] [-image] [-repeat] [-attachment] [-position];
+}
+```
+
+- boxmodel: HTML의 모든 요소는 사각형의 박스 형태로 만들어진다. 박스는 총 4가지의 세분된 영역으로 나뉘며, 이 네가지를 통틀어 박스 모델이라 부른다.
+
+  - Content 영역
+
+  요소의 실제 내용을 포함하는 영역. 따라서 크기는 내용의 너비 및 높이를 나타낸다.
+
+  - Border 영역
+
+  content 영역을 감싸는 테두리 선을 border라고 한다.
+
+  - Padding 영역
+
+  content 영역과 테두리 사이의 여백을 padding이라고 한다. content 영역이 배경, 색 또는 이미지가 있을 때 패딩 영역까지 영향을 끼친다. 따라서 padding을 content의 연장으로 볼 수 있다.
+
+  - Margin 영역
+
+  border 바깥쪽의 영역을 margin이라고 한다. border 영역을 다른 요소와 구별하기 위해 쓰이는 빈 영역으로, 주변 요소와의 여백을 margin을 이용해 지정할 수 있다.
+
+> Margin Collapse: 서로 인접한 요소의 margin이 수직 방향으로 겹칠 때, 하나로 중첩되는 것을 말한다. 좌우로는 합쳐지지 않으며 상하 방향으로만 적용된다.
+
+- width: 요소의 가로 크기를 정의하는 데 사용하며, 정확히는 content 영역의 너비를 지정하는 것을 의미한다.
+
+- font-family: 
+```css
+{
+  font-family: family-name | generic-family ( | initial | inherit ); 
+}
+```
+
+- web-font: 서버에 저장해 제공하거나, 웹 경로를 통해 사용하는 폰트
+  - `@font-face`: 웹에 있는 글꼴을 사용자의 로컬 환경(컴퓨터)으로 다운로드하여 적용하는 css 속성
+```css
+@font-face {
+    /* 사용자 지정 웹 폰트명 */
+    font-family: webNanumGothic; 
+    /* 적용 될 웹 폰트의 경로 */
+    src: url(NanumGothic.eot); 
+    /* 필요에 따라 지정 */
+    font-weight: bold; 
+    font-style: italic; 
+}
+
+body {
+    font-family: webNanumGothic;
+}
+```
+
+> - 시스템 폰트는 font-family로 선언한 글꼴이 사용자 시스템에 기본으로 설치가 되어 있어 사용할 수 있는 경우.
+>- 이미지 폰트는 특정 글꼴을 사용하는 것이 아니고, 글자를 표현함에 있어 시각적인 요소를 많이 넣고 싶을 때 글꼴 대신 이미지를 이용해서 표현하는 경우. 정확히 얘기하면 이미지 폰트는 폰트가 아니고 이미지.
+>- 웹 폰트의 경우는 서버에 저장해 제공하거나, 웹 경로를 통해 사용하는 폰트를 말합니다. 
+
+### 미디어 쿼리
+반응형 웹 사이트 제작에 반드시 필요한 기술. 각 미디어 매체(모니터와 같은 스크린 매체, 프린트, 스크린 리더기 등)에 따라 다른 스타일(css style)을 적용할 수 있게 만드는 것
+
 
 ## Reference
 
 - <a href="https://www.edwith.org/boostcourse-ui/joinLectures/19142">[부스트코스] 웹 UI 개발</a>
 - <a href="https://www.w3schools.com/">w3schools</a>
 - <a href="https://developer.mozilla.org/ko/docs/Learn/CSS">MDN - CSS를 이용한 HTML 스타일링 익히기</a>
+
