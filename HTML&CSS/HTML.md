@@ -6,33 +6,33 @@
 
 - Tag: < > 기호 안에 태그 이름을 넣어 태그를 시작한다. 그 다음 내용이 오고, 마지막으로 종료 태그 </ > 를 붙인다.
 
-```html
-<h1>Hello!</h1>
-```
-
-태그는 아래와 같이 중첩해서 사용할 수 있다.
-
-```html
-<div>
+  ```html
   <h1>Hello!</h1>
-</div>
-```
+  ```
 
-내용이 없는 태그는 중첩이 불가능하다.
+  ```html
+  <!-- 태그는 아래와 같이 중첩해서 사용할 수 있다. -->
+  <div>
+    <h1>Hello!</h1>
+  </div>
+  ```
 
-```html
-<img src="./image/test.jpg" /> <input type="search" />
-```
+  ```html
+  <!-- img, input과 같이 내용이 없는 태그(void elements)는 중첩이 불가능하다. -->
+  <img src="./image/test.jpg" /> <input type="search" />
+  ```
 
 - Element(요소): '시작태그 + 내용 + 종료태그' 세가지를 합쳐서 Element(요소)라고 부른다.
 
 - Attribute(속성): 태그에 추가 정보를 제공하거나 태그의 동작이나 표현을 제어할 수 있는 설정값이다. 속성이름="속성값" 형태로 사용한다. 여러가지 속성을 사용할 때에는 공백으로 구분한다.
 
-```html
-<h1 id="myID" class="myClass">Hello!</h1>
-```
+  ```html
+  <h1 id="myID" class="myClass">Hello!</h1>
+  ```
 
 #### HTML 문서 기본 구조
+
+HTML 문서는 요소의 집합으로 이루어져 있으며, 기본 구조는 다음과 같이 구성된다.
 
 ```html
 <!DOCTYPE html>
@@ -49,28 +49,28 @@
 
 #### 주요 태그 목록
 
-- `<a>` : anchor 태그. 링크를 나타내는 `href` 속성을 반드시 가져야 한다. `href`의 속성값에 "주소" 대신 "#id"를 쓰면 페이지 내 특정 요소로 초점을 이동한다. `target` 속성으로 링크된 페이지를 어디에 표시할지 나타낼 수 있다.
+- `<a>` : 다른 페이지로 이동할 때 사용한다. 이동할 링크를 나타내는 `href` 속성을 반드시 가져야 한다. `href`의 속성값에 "주소" 대신 "#id"를 쓰면 페이지 내 특정 요소로 초점을 이동한다. `target` 속성으로 링크된 페이지를 어디에 표시할지(새 창, 현재 페이지 등) 나타낼 수 있다.
 
-```html
-<a href="http://www.naver.com/" target="_blank">네이버</a>
-```
+  ```html
+  <a href="http://www.naver.com/" target="_blank">네이버</a>
+  ```
 
 - `<div>`와 `<span>` : 태그 자체에 아무 의미가 없으며, 단순히 요소들을 묶기 위해 사용되는 태그. 스타일을 주거나 서버에 보내는 데이터를 담기 위한 용도로 활용한다.
 
-```html
-<div><span>This</span> is an apple.</div>
-```
+  ```html
+  <div><span>This</span> is an apple.</div>
+  ```
 
 - `<ul>`과 `<ol>` : `ul`(unordered list)는 순서가 없는 목록을, `ol`(ordered list)는은 순서가 있는 목록을 표현할 때 사용한다.
 
-```html
-<ul>
-  <li>Love</li>
-  <li>Hope</li>
-  <li>Faith</li>
-  ...
-</ul>
-```
+  ```html
+  <ul>
+    <li>Love</li>
+    <li>Hope</li>
+    <li>Faith</li>
+    ...
+  </ul>
+  ```
 
 - `<img>` : HTML 문서에 이미지를 삽입하기 위해 사용한다. `img` 태그에는 `src`와 `alt` 두가지 속성이 반드시 포함되어야 한다. `src` 속성은 이미지의 경로를 지정하며, `alt` 속성은 이미지를 대체하는 텍스트를 표현한다. `height`와 `weight` 속성으로 크기를 지정할 수 있다.
 
@@ -80,60 +80,54 @@
 
 - `<input>` : `type` 속성과 함께 사용되어 여러 종류의 입력 양식으로 사용된다.
 
-  1. `type="text"` : 주로 아이디와 같이 단순한 텍스트를 입력할 때 사용한다. `placeholder` 속성으로 미리 표시될 값을 지정할 수 있다.
+1. `type="text"` : 주로 아이디와 같이 단순한 텍스트를 입력할 때 사용한다. `placeholder` 속성으로 미리 표시될 값을 지정할 수 있다.
 
-  ```html
-  <input type="text" placeholder="ID" />
-  ```
+```html
+<input type="text" placeholder="ID" />
+```
 
-  2. `type="password"` : 암호와 같이 공개할 수 없는 내용을 입력할 때 사용
+2. `type="password"` : 암호와 같이 공개할 수 없는 내용을 입력할 때 사용
 
-  ```html
-  <input type="password" />
-  ```
+```html
+<input type="password" />
+```
 
-  3. `type="radio"` : 중복 선택이 불가능한 라디오 버튼을 만들 때 사용
+3. `type="radio"` : 중복 선택이 불가능한 라디오 버튼을 만들 때 사용
 
-  ```html
-  <input type="radio" name="fav" /> Yes <input type="radio" name="fav" /> No
-  ```
+```html
+<input type="radio" name="fav" /> Yes <input type="radio" name="fav" /> No
+```
 
-  4. `type="checkbox"` : 중복 선택이 가능한 체크박스를 만들 때 사용
+4. `type="checkbox"` : 중복 선택이 가능한 체크박스를 만들 때 사용
 
-  ```html
-  <input type="checkbox" name="hobby" /> Apple
-  <input type="checkbox" name="hobby" /> Banana
-  <input type="checkbox" name="hobby" /> Coffee
-  ```
+```html
+<input type="checkbox" name="hobby" /> Apple
+<input type="checkbox" name="hobby" /> Banana
+<input type="checkbox" name="hobby" /> Coffee
+```
 
-  5. `type="file"` : 파일을 서버에 올릴 때 사용
+5. `type="file"` : 파일을 서버에 올릴 때 사용
 
-  ```html
-  <input type="file" />
-  ```
+```html
+<input type="file" />
+```
 
-  6. `type="submit|reset|image|button"` : submit, reset, image, button 타입은 모두 클릭 가능한 버튼을 만듭니다.
+6. `type="submit|reset|image|button"` : submit, reset, image, button 타입은 모두 클릭 가능한 버튼을 만듭니다.
 
-  - submit : form의 값을 전송하는 버튼
-  - reset : form의 값을 초기화하는 버튼
-  - image : 이미지를 삽입할 수 있는 버튼 (submit과 동작이 동일함)
-  - button : 아무 기능이 없는 버튼
+- submit : form의 값을 전송하는 버튼
+- reset : form의 값을 초기화하는 버튼
+- image : 이미지를 삽입할 수 있는 버튼 (submit과 동작이 동일함)
+- button : 아무 기능이 없는 버튼
 
-  ```html
-  <form action="./test.html">
-    메시지: <input type="text" name="message" /><br />
-    <input type="submit" />
-    <input type="reset" />
-    <input
-      type="image"
-      src="./img/test.jpg"
-      alt="click"
-      width="50"
-      height="50"
-    />
-    <input type="button" value="버튼" />
-  </form>
-  ```
+```html
+<form action="./test.html">
+  메시지: <input type="text" name="message" /><br />
+  <input type="submit" />
+  <input type="reset" />
+  <input type="image" src="./img/test.jpg" alt="click" width="50" height="50" />
+  <input type="button" value="버튼" />
+</form>
+```
 
 ##### 다른 폼 요소
 
