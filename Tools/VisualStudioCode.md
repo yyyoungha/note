@@ -1,9 +1,22 @@
 # Visual Studio Code Shortcuts
 
-| **Commands** | **Keyboard shortcuts [Contexts]** |
-| ------------ | --------------------------------- |
-| Delete Line  | **Ctrl+Shift+K**                  |
-| Go To Line   | **Ctrl+G**                        |
+## General
+
+| **Commands**      | **Keyboard shortcuts ** |
+| ----------------- | ----------------------- |
+| Keyboard Shortcut | **Ctrl+K, Ctrl+S**      |
+
+## Edit
+
+| **Commands** | **Keyboard shortcuts ** |
+| ------------ | ----------------------- |
+| Delete Line  | **Ctrl+Shift+K**        |
+
+## Navigation
+
+| **Commands** | **Keyboard shortcuts ** |
+| ------------ | ----------------------- |
+| Go To Line   | **Ctrl+G**              |
 
 <br>
 
