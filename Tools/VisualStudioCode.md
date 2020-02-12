@@ -2,7 +2,8 @@
 
 | **Commands** | **Keyboard shortcuts [Contexts]** |
 | ------------ | --------------------------------- |
-| Delete LIne  | **Ctrl+Shift+K**                  |
+| Delete Line  | **Ctrl+Shift+K**                  |
+| Go To Line   | **Ctrl+G**                        |
 
 <br>
 
