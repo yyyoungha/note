@@ -2,21 +2,21 @@
 
 ## General
 
-| **Commands**      | **Keyboard shortcuts ** |
-| ----------------- | ----------------------- |
-| Keyboard Shortcut | **Ctrl+K, Ctrl+S**      |
+| **Commands**      | **Keyboard shortcuts** |
+| ----------------- | ---------------------- |
+| Keyboard Shortcut | **Ctrl+K, Ctrl+S**     |
 
 ## Edit
 
-| **Commands** | **Keyboard shortcuts ** |
-| ------------ | ----------------------- |
-| Delete Line  | **Ctrl+Shift+K**        |
+| **Commands** | **Keyboard shortcuts** |
+| ------------ | ---------------------- |
+| Delete Line  | **Ctrl+Shift+K**       |
 
 ## Navigation
 
-| **Commands** | **Keyboard shortcuts ** |
-| ------------ | ----------------------- |
-| Go To Line   | **Ctrl+G**              |
+| **Commands** | **Keyboard shortcuts** |
+| ------------ | ---------------------- |
+| Go To Line   | **Ctrl+G**             |
 
 <br>
 
