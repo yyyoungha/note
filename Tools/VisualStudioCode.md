@@ -1,18 +1,25 @@
-# Visual Studio Code Shortcuts
+# Visual Studio Code
 
-## General
+## Tips
 
-| **Commands**      | **Keyboard shortcuts** |
-| ----------------- | ---------------------- |
-| Keyboard Shortcut | **Ctrl+K, Ctrl+S**     |
+:construction:
 
-## Edit
+## Shortcuts
+
+### General
+
+| **Commands**           | **Keyboard shortcuts** |
+| ---------------------- | ---------------------- |
+| Show Keyboard Shortcut | **Ctrl+K, Ctrl+S**     |
+
+### Edit
 
 | **Commands** | **Keyboard shortcuts** |
 | ------------ | ---------------------- |
 | Delete Line  | **Ctrl+Shift+K**       |
+| Switch Focus | **Ctrl+`**             |
 
-## Navigation
+### Navigation
 
 | **Commands** | **Keyboard shortcuts** |
 | ------------ | ---------------------- |
