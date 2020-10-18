@@ -4,20 +4,21 @@
 
 - [Input](#Input)
 - [Output](#Output)
-- [Type Casting](#Type-Casting)
+- [Type](#Type)
+- [Built-in Functions](#Built-in-Functions)
 
 ## Input
 
 ### basics
 
-사용자 입력을 받기 위해 [input()][input] 함수를 사용한다. 맨 마지막에 개행문자를 제거한 문자열을 돌려준다. 화면에 출력될 문자열이 함수 인자로 올 수 있다.
+사용자 입력을 받기 위해 [`input()`][input] 함수를 사용한다. 맨 마지막에 개행문자를 제거한 문자열을 돌려준다. 화면에 출력될 문자열이 함수 인자로 올 수 있다.
 
 ```python
 # 1 str
 string = input('input a string : ')
 ```
 
-기본적으로 [input()][input] 은 입력되는 모든 것을 문자열로 취급한다. 숫자가 필요하다면 명시적으로 변환해야 한다.
+기본적으로 [`input()`][input] 은 입력되는 모든 것을 문자열로 취급한다. 숫자가 필요하다면 명시적으로 변환해야 한다.
 
 ```python
 # 1 int
@@ -26,7 +27,7 @@ integer = int(input())
 
 ### taking multiple inputs
 
-구분자를 공백 문자로 하여 여러개를 입력받는 경우 split() 함수를 사용한다. 형 변환시에는 map() 함수를 사용한다.
+구분자를 공백 문자로 하여 여러개를 입력받는 경우 `split()` 함수를 사용한다. 형 변환시에는 `map()` 함수를 사용한다.
 
 ```python
 # str, str
@@ -62,7 +63,7 @@ for i in range(SIZE):
 a = [int(input()) for _ in range(SIZE)]
 ```
 
-한 줄에 여러 개의 입력이 있고, 이것이 여러 줄에서 반복된다면 한 줄에 여러 입력을 받기 위한 split(), map() 함수와 여러 줄에서 입력을 받는 list comprehension을 함께 사용한다.
+한 줄에 여러 개의 입력이 있고, 이것이 여러 줄에서 반복된다면 한 줄에 여러 입력을 받기 위한 `split()`, `map()` 함수와 여러 줄에서 입력을 받는 list comprehension을 함께 사용한다.
 
 ```python
 a = [list(map(int, input().split())) for _ in range(SIZE))]
@@ -70,7 +71,7 @@ a = [list(map(int, input().split())) for _ in range(SIZE))]
 
 ### faster way to get input (for Competitive Programming)
 
-sys 라이브러리의 stdin 객체의 readline() 함수를 사용하면 input() 함수보다 더 빠른 시간에 입력이 가능하다. input() 함수와는 다르게 개행문자도 저장되므로 rstrip()을 사용하는 것을 고려해야 한다.
+`sys` 라이브러리의 `stdin` 객체의 `readline()` 함수를 사용하면 [`input()`][input] 함수보다 더 빠른 시간에 입력이 가능하다. [`input()`][input] 함수와는 다르게 개행문자도 저장되므로 `rstrip()`을 사용하는 것을 고려해야 한다.
 
 ```python
 # usage 1: basic
@@ -91,7 +92,7 @@ third = readline()
 
 ### get input untill EOF
 
-EOF까지 입력을 받고 싶다면 sys.stdin에 대하여 for loop 을 사용하거나 try-except 문을 사용할 수 있다.
+EOF까지 입력을 받고 싶다면 `sys.stdin`에 대하여 for loop 을 사용하거나 try-except 문을 사용할 수 있다.
 
 ```python
 # usage 1: for loop in sys.stdin
@@ -111,13 +112,13 @@ while True:
 
 ### basics
 
-출력을 할 때에는 print() 함수를 사용한다.
+출력을 할 때에는 `print()` 함수를 사용한다.
 
 ```python
 print("Hello World!")
 ```
 
-print() 함수는 기본적으로 출력 후 끝에 줄 바꿈 문자를 추가한다. end 속성에 값을 지정하여 맨 끝에 올 문자를 바꿀 수 있다.
+`print()` 함수는 기본적으로 출력 후 끝에 줄 바꿈 문자를 추가한다. end 속성에 값을 지정하여 맨 끝에 올 문자를 바꿀 수 있다.
 
 ```python
 print("Hello World", end="!\n")
@@ -125,7 +126,7 @@ print("Hello World", end="!\n")
 
 ### concatenate string
 
-print() 함수 내에 문자열 변수를 연결하여 출력하는 방법에는 여러가지 방법이 있다. 네번째 f-strings는 Python 3.6 부터 지원한다.
+`print()` 함수 내에 문자열 변수를 연결하여 출력하는 방법에는 여러가지 방법이 있다. 네번째 f-strings는 Python 3.6 부터 지원한다.
 
 ```python
 first = "Adversity"
@@ -152,7 +153,7 @@ print(f"{first} and {second} make a man wise.")
 print("Mathematical constant PI : %.3f" % 3.1415926535897931)
 ```
 
-반올림을 할 때 [round()][round] 함수를 쓸 수 있다. 주의해야 할 것은 python 3에서 [round()][round] 함수는 [Banker's rounding][bankers-rounding] 방식을 사용한다는 것이다.
+반올림을 할 때 [`round()`][round] 함수를 쓸 수 있다. 주의해야 할 것은 python 3에서 [`round()`][round] 함수는 [Banker's rounding][bankers-rounding] 방식을 사용한다는 것이다.
 
 ```python
 # same output: 4
@@ -160,9 +161,11 @@ round(3.5)
 round(4.5)
 ```
 
-## Type Casting
+## Type
 
-숫자간 진법 변환은 아래와 같이 수행한다. 첫번째 인자로 진법에 관계 없이 숫자형을 입력받은 뒤, 해당 진법으로 변환된 문자열을 반환한다. format 함수의 두번째 인자로 #을 제거할 경우, 결과로 값만 리턴한다.
+### number
+
+숫자간 진법 변환은 아래와 같이 수행한다. 첫번째 인자로 진법에 관계 없이 숫자형을 입력받은 뒤, 해당 진법으로 변환된 문자열을 반환한다. `format()` 함수의 두번째 인자로 #을 제거할 경우, 결과로 값만 리턴한다.
 
 ```python
 a = 10
@@ -186,6 +189,51 @@ int('0b1010', 2)    # 10
 int('0o12', 8)      # 10
 int('0xa', 16)      # 10
 ```
+
+### string
+
+문자열 처리에 자주 쓰이는 함수들을 알아두면 각각의 기능을 직접 구현하지 않아도 되므로 개발 시간을 크게 단축시킬 수 있다. 먼저 `count()` 함수는 부분 문자열 sub 이 중첩되지 않고 몇번 나타나는지를 리턴한다.
+
+```python
+a = 'hello'
+b = 'aaaaa'
+
+# count(sub, start, end)
+a.count('l')        # 2
+a.count('l', 3)     # 1
+a.count('l', 2, 3)  # 1
+b.count('aa')       # 2
+```
+
+```python
+# find, rfind
+
+# index, rindex
+
+# isalnum
+
+# isalpha
+
+# isdecimal
+
+# isdigit
+
+# isnumeric
+
+# isupper, islower
+
+# lstrip, rstrip
+
+# lower, upper
+
+# replace
+
+# split
+```
+
+## Built-in Functions
+
+:construction:
 
 [input]: https://docs.python.org/3/library/functions.html#input "input() - Python Official Docs"
 [round]: https://docs.python.org/3/library/functions.html?highlight=round#round "round() - Python Official Docs"
