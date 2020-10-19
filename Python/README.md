@@ -2,10 +2,9 @@
 
 ## Contents
 
-- [Input](#Input)
-- [Output](#Output)
-- [Type](#Type)
-- [Built-in Functions](#Built-in-Functions)
+- [Input](##Input)
+- [Output](##Output)
+- [Type](##Type)
 
 ## Input
 
@@ -165,7 +164,7 @@ round(4.5)
 
 ### number
 
-숫자간 진법 변환은 아래와 같이 수행한다. 첫번째 인자로 진법에 관계 없이 숫자형을 입력받은 뒤, 해당 진법으로 변환된 문자열을 반환한다. `format()` 함수의 두번째 인자로 #을 제거할 경우, 결과로 값만 리턴한다.
+숫자간 진법 변환은 아래와 같이 수행한다. 첫번째 인자로 진법에 관계 없이 숫자형을 입력받은 뒤, 해당 진법으로 변환된 문자열을 반환한다. `format()` 함수의 두번째 인자로 #을 제거할 경우, 결과로 값만 반환한다.
 
 ```python
 a = 10
@@ -192,49 +191,83 @@ int('0xa', 16)      # 10
 
 ### string
 
-문자열 처리에 자주 쓰이는 함수들을 알아두면 각각의 기능을 직접 구현하지 않아도 되므로 개발 시간을 크게 단축시킬 수 있다. 먼저 `count()` 함수는 부분 문자열 sub 이 중첩되지 않고 몇번 나타나는지를 리턴한다.
+문자열 처리에 자주 쓰이는 함수들을 알아두면 각각의 기능을 직접 구현하지 않아도 되므로 개발 시간을 크게 단축시킬 수 있다. 아래 함수는 모두 인자로 부분 문자열 sub을 전달하고, 탐색할 범위 [start, end)를 지정할 수 있다.
+
+- `count()`  
+  부분 문자열 sub 이 중첩되지 않고 몇번 나타나는지를 반환한다.
+
+- `find()`  
+  부분 문자열 sub 이 등장하는 가장 _처음_ index를 반환한다. 만약 존재하지 않는다면 -1을 반환한다.
+
+- `rfind()`  
+  부분 문자열 sub 이 등장하는 가장 _마지막_ index를 반환한다. 만약 존재하지 않는다면 -1을 반환한다.
+
+- `index()`  
+  `find()`와 동일하나, 존재하지 않는다면 -1 대신 [`ValueError`][value-error] 예외를 발생시킨다.
+
+- `rindex()`  
+  `rfind()`와 동일하나, 존재하지 않는다면 -1 대신 [`ValueError`][value-error] 예외를 발생시킨다.
 
 ```python
-a = 'hello'
-b = 'aaaaa'
+# count
+a = 'I love python programming'
 
-# count(sub, start, end)
-a.count('l')        # 2
-a.count('l', 3)     # 1
-a.count('l', 2, 3)  # 1
-b.count('aa')       # 2
-```
+a.count('o')                # 3
+a.count('o', 5)             # 2
+a.count('python', 10, 15)   # 0
 
-```python
+a = 'aaaaa'
+
+a.count('aa')       # 2
+
 # find, rfind
+a = 'I was lost, I was trying to find the answer'
+a.find('I was')     # 0
+a.rfind('I was')    # 12
 
-# index, rindex
+a.find('yeah')      # -1
+a.rfind('yeah')     # -1
 
-# isalnum
+a.index('I was')    # 0
+a.rindex('I was')   # 12
 
-# isalpha
-
-# isdecimal
-
-# isdigit
-
-# isnumeric
-
-# isupper, islower
-
-# lstrip, rstrip
-
-# lower, upper
-
-# replace
-
-# split
+a.index('yeah')     # ValueError
+a.rindex('yeah')    # ValueError
 ```
 
-## Built-in Functions
+다음 함수는 문자열이 어떤 문자로 구성되어 있는지 확인한다. 공백은 알파벳이나 숫자로 취급하지 않는다. 특히 `isdecimal()`, `isdigit()`, `isnumeric()`은 의미가 헷갈릴 수 있다. 뒤에 있을수록 더 넓은 범위를 포함한다.
 
-:construction:
+- `isdecimal()`
+- `isdigit()`
+- `isnumeric()`  
+  `isdecimal()` 함수는 모든 문자가 십진수 문자(0-9) 이고, 적어도 하나의 문자가 존재하는 경우 `True`, 그렇지 않으면 `False` 를 반환한다. `isdigit()` 함수와 `isnumeric()`은 이보다 더 넒은 범위를 포함한다.
 
-[input]: https://docs.python.org/3/library/functions.html#input "input() - Python Official Docs"
-[round]: https://docs.python.org/3/library/functions.html?highlight=round#round "round() - Python Official Docs"
+- `isalpha()`  
+  모든 문자가 알파벳이고, 적어도 하나의 문자가 존재하는 경우 `True`, 그렇지 않으면 `False` 를 반환한다.
+
+- `isalnum()`  
+  `isalpha()`, `isdecimal()`, `isdigit()`, `isnumeric()` 중 하나라도 `True`를 반환하면 `True`, 그렇지 않으면 `False` 를 반환한다.
+
+```python
+# isdecimal(), isdigit(), isnumeric()
+a = '10'
+b = '3²'
+c = '½'
+
+a.isdecimal()   # True
+a.isdigit()     # True
+a.isnumeric()   # True
+
+b.isdecimal()   # False
+b.isdigit()     # True
+b.isnumeric()   # True
+
+c.isdecimal()   # False
+c.isdigit()     # False
+c.isnumeric()   # True
+```
+
+[input]: https://docs.python.org/3/library/functions.html#input "input(): Built-in Functions — Python 3.9.0 documentation"
+[round]: https://docs.python.org/3/library/functions.html?highlight=round#round "round(): Built-in Functions — Python 3.9.0 documentation"
 [bankers-rounding]: https://en.wikipedia.org/wiki/Rounding "Banker's rounding - wikipedia"
+[value-error]: https://docs.python.org/3/library/exceptions.html#ValueError "ValueError: Built-in Exceptions — Python 3.9.0 documentation"
